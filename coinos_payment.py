@@ -92,8 +92,8 @@ def make_payment(ln_address,value):
             break
         time.sleep(1)
 
-    # scrola até o final da página --precisa ser implementado
-    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    # scrola até o final da página
+    navegador.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
     # informa o valor
     string_value = str(value)
