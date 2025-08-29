@@ -44,9 +44,10 @@ def make_payment(ln_address,value):
     #options.add_argument("--headless=new")
     options.add_argument("--start-maximized")
     options.add_argument("--no-sandbox")
-	options.add_argument('--disable-crash-reporter')
+    options.add_argument('--disable-crash-reporter')
 
     navegador=webdriver.Chrome(service=servico, options=options)
+    wait = WebDriverWait(navegador, 10) # waits for a maximum of 10 seconds
 
     navegador.get("http://coinos.io/login/")
     
@@ -67,7 +68,7 @@ def make_payment(ln_address,value):
     element = "//button/div[text()='Enviar']"
     for x in range(10):
         if check_exists_by_xpath(navegador, element):
-			submit = wait.until(EC.element_to_be_clickable((By.XPATH, element)))
+            submit = wait.until(EC.element_to_be_clickable((By.XPATH, element)))
             submit.click()
             break
         time.sleep(1)
