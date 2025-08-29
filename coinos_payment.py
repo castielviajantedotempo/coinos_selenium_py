@@ -3,6 +3,8 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from pathlib import Path
 import os
@@ -65,7 +67,8 @@ def make_payment(ln_address,value):
     element = "//button/div[text()='Enviar']"
     for x in range(10):
         if check_exists_by_xpath(navegador, element):
-            navegador.find_element(By.XPATH, element).click()
+			submit = wait.until(EC.element_to_be_clickable((By.XPATH, element)))
+            submit.click()
             break
         time.sleep(1)
 
@@ -81,7 +84,8 @@ def make_payment(ln_address,value):
     element = "//button/div[text()='Continuar']"
     for x in range(10):
         if check_exists_by_xpath(navegador, element):
-            navegador.find_element(By.XPATH, element).click()
+            continue_ = wait.until(EC.element_to_be_clickable((By.XPATH, element)))
+            continue_.click()
             break
         time.sleep(1)
 
@@ -110,7 +114,8 @@ def make_payment(ln_address,value):
     element = "//button[text()='Enviar']"
     for x in range(10):
         if check_exists_by_xpath(navegador, element):
-            navegador.find_element(By.XPATH, element).click()
+            submit = wait.until(EC.element_to_be_clickable((By.XPATH, element)))
+            submit.click()
             break
         time.sleep(1)
 
@@ -118,7 +123,8 @@ def make_payment(ln_address,value):
     element = "//button[text()='Enviar']"
     for x in range(10):
         if check_exists_by_xpath(navegador, element):
-            navegador.find_element(By.XPATH, element).click()
+            submit = wait.until(EC.element_to_be_clickable((By.XPATH, element)))
+            submit.click()
             break
         time.sleep(1)
 
