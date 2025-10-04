@@ -56,10 +56,10 @@ def make_payment(ln_address,value):
 	
 	#Login Page
     for x in range(10):
-        if check_exists_by_xpath(navegador, '/html/body/div/main/main/div/form/input[3]'):
-            navegador.find_element(By.XPATH, '/html/body/div/main/main/div/form/input[3]').send_keys(castiel_login)
-            navegador.find_element(By.XPATH, '/html/body/div/main/main/div/form/label/input').send_keys(castiel_pass)
-            navegador.find_element(By.XPATH, '/html/body/div/main/main/div/form/button[1]').click()
+        if check_exists_by_xpath(navegador, '//input[@name="username"]'):
+            navegador.find_element(By.XPATH, '//input[@name="username"]').send_keys(castiel_login)
+            navegador.find_element(By.XPATH, '//input[@type="password"]').send_keys(castiel_pass)
+            navegador.find_element(By.XPATH, '//button[@type="submit"]').click()
             break
         time.sleep(1)
     
